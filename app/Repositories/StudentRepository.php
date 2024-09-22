@@ -3,6 +3,9 @@ namespace App\Repositories;
 use App\DTO\StudentData;
 use App\Models\Student;
 
+
+
+
 class StudentRepository{
     public function storeStudent(StudentData $studentData){
   // Store the student using the data from the DTO
