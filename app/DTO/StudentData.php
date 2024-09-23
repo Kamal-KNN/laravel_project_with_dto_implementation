@@ -4,38 +4,40 @@ namespace App\DTO;
 
 class StudentData
 {
-    public $first_name;
 
-    public $last_name;
 
-    public $email;
+    public function __construct(    public ?string $first_name;
 
-    public $salary;
+    public ?string $last_name;
 
-    public $phone;
+    public ?string $email;
 
-    public $address;
+    public ?string $salary;
 
-    public function __construct($first_name, $last_name, $email, $salary, $phone, $address)
+    public ?string $phone;
+
+    public ?string $address;
+    )
     {
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-        $this->email = $email;
-        $this->salary = $salary;
-        $this->phone = $phone;
-        $this->address = $address;
+
     }
 
     // Static method to create a new instance from an array
-    public static function from(array $data): self
+    public static function rules(): array
     {
-        return new self(
-            $data['first_name'],
-            $data['last_name'],
-            $data['email'],
-            $data['salary'],
-            $data['phone'],
-            $data['address']
-        );
+return [
+    'first_name'=>['string',
+                'required',],
+    'last_name'=>['string',
+                'required',],
+    'email'=>['string',
+                'required'],
+    'salary'=>['string',
+                'required',],
+    'phone'=>['string',
+                'required',],
+    'address'=>['string',
+                'required',]
+];
     }
 }
